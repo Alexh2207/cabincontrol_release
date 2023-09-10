@@ -1,3 +1,14 @@
+/**
+  ******************************************************************************
+  * @file   spi_master.cpp
+  * @author Alejandro Hontanilla Belinchón (a.hontanillab@alumnos.upm.es)
+  * @brief  SPI Handler Module header.
+  *
+  * @note   End-of-degree work.
+  *         This module manages the SPI communications
+  ******************************************************************************
+*/
+
 #include "spi_master.h"
 #include "../custom_gpio/custom_gpio.h"
 

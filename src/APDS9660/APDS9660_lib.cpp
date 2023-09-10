@@ -189,7 +189,6 @@ uint8_t APDS9660_Master::check_gesture(){
 
 	I2C_Master::read_msg(0x39,0xAE,&fifo_level,1);
 
-	printf("Level: %d\n",fifo_level);
 
 	return data_valid & 0x01;
 }
@@ -210,8 +209,6 @@ uint8_t APDS9660_Master::read_ges_fifo_ud(){
 
 	while(fifo_level>0 && motion == 0){
 		I2C_Master::read_msg(0x39,0xFC,data,4);
-
-		printf("UP: %d", data[0]);
 
 		if(data[0]-data[1] < 2){
 			if(down == 0){

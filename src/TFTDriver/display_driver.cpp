@@ -1,9 +1,13 @@
-/*
- * display_driver.cpp
- *
- *  Created on: May 7, 2023
- *      Author: Alejandro Hontanilla
- */
+/**
+  ******************************************************************************
+  * @file   display_driver.h
+  * @author Alejandro Hontanilla Belinchón (a.hontanillab@alumnos.upm.es)
+  * @brief  TFTDisplay driver. Provides a layer of abstraction over SPI comms.
+  *
+  * @note   End-of-degree work. Optimization inspired on algorithms developed by
+  * 		Pablo Sanmillán Fierro
+  ******************************************************************************
+*/
 
 #include "display_driver.h"
 #include <algorithm>

@@ -1,9 +1,12 @@
-/*
- * icons.h
- *
- *  Created on: Aug 31, 2023
- *      Author: root
- */
+/**
+  ******************************************************************************
+  * @file   icons.h
+  * @author Alejandro Hontanilla Belinchón (a.hontanillab@alumnos.upm.es)
+  * @brief  File where the icons used are stored
+  *
+  * @note   End-of-degree work.
+  ******************************************************************************
+*/
 
 #ifndef _ICONS_H_
 #define _ICONS_H_

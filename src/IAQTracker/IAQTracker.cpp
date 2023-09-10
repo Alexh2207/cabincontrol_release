@@ -175,12 +175,6 @@ int IAQTracker::get_IAQ(float *iaq, float temp, float hum, float gas_res){
 
     *iaq = (1 - pow(comp_gas / gas_ceil, 2)) * 500;
 
-    printf("gas_res_raw: %f\n", gas_res);
-    printf("comp_gas: %f\n", comp_gas);
-    printf("gas_ceil: %f\n", gas_ceil);
-    printf("RAW -1: %f\n", pow(comp_gas / gas_ceil, 2));
-    printf("RAW IAQ: %f\n", *iaq);
-
     if(*iaq < 0)
       *iaq = 0;
   }

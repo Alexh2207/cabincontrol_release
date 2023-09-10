@@ -4,7 +4,8 @@
   * @author Alejandro Hontanilla Belinchón (a.hontanillab@alumnos.upm.es)
   * @brief  TFTDisplay driver. Provides a layer of abstraction over SPI comms.
   *
-  * @note   End-of-degree work.
+  * @note   End-of-degree work. Optimization inspired on algorithms developed by
+  * 		Pablo Sanmillán Fierro
   ******************************************************************************
 */
 

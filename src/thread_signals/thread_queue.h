@@ -1,9 +1,12 @@
-/*
- * thread_queue.h
- *
- *  Created on: Sep 1, 2023
- *      Author: root
- */
+/**
+  ******************************************************************************
+  * @file   thread_queue.h
+  * @author Alejandro Hontanilla Belinchón (a.hontanillab@alumnos.upm.es)
+  * @brief  Thread-safe queue that provides synchronization
+  *
+  * @note   End-of-degree work.
+  ******************************************************************************
+*/
 
 #ifndef SRC_THREAD_SIGNALS_THREAD_QUEUE_H_
 #define SRC_THREAD_SIGNALS_THREAD_QUEUE_H_
@@ -15,7 +18,8 @@
 template <typename T>
 class Thread_queue {
 private:
-    // Underlying queue
+
+	// data queue
     std::queue<T> m_queue;
 
     // mutex for thread synchronization
@@ -26,7 +30,9 @@ private:
 
 public:
 
-    // Pushes an element to the queue
+	/**
+	* @brief Pushes an element of type T to the queue.
+	*/
     void push(T item){
 
     	// Acquire lock
@@ -40,7 +46,11 @@ public:
     	m_cond.notify_one();
     }
 
-    // Pops an element off the queue
+	/**
+	* @brief Pops the older element in the queue. If queue is empty it waits until an element is pushed.
+	*
+	* @return Element of type T.
+	*/
     T pop()
     {
 
@@ -58,6 +68,14 @@ public:
     	return item;
     }
 
+	/**
+	* @brief Pops the older element in the queue. If queue is empty it waits until an element is pushed or
+	* 		 timeout is reached.
+	*
+	* @param[in] timeout timeout in milliseconds.
+	*
+	* @return Element of type T.
+	*/
     T pop(int timeout)
     {
 
@@ -80,6 +98,12 @@ public:
     	return item;
     }
 
+	/**
+	* @brief Pops the oldest element in the queue without erasing it.
+	* 		 If queue is empty it waits until an element is pushed.
+	*
+	* @return Element of type T.
+	*/
     T front()
     {
 
@@ -96,6 +120,12 @@ public:
     	return item;
     }
 
+	/**
+	* @brief Pops the newest element in the queue without erasing it.
+	* 		 If queue is empty it waits until an element is pushed.
+	*
+	* @return Element of type T.
+	*/
     T back()
     {
 
@@ -112,6 +142,12 @@ public:
     	return item;
     }
 
+	/**
+	* @brief Pops the newest element in the queue and clears the whole queue.
+	* 		 If queue is empty it waits until an element is pushed.
+	*
+	* @return Element of type T.
+	*/
     T back_clear()
     {
 
