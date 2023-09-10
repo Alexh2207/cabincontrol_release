@@ -8,6 +8,7 @@
 #include <queue>
 #include <mutex>
 #include <unistd.h>
+#include <csignal>
 #include <mqtt/client.h>
 #include <mqtt/async_client.h>
 #include <json/json.h>
@@ -140,6 +141,9 @@ void print_off_button(uint8_t color[]);
 //Erases the display screen
 void erase_display();
 
+//End program in orderly manner
+void signalHandler( int signum );
+
 int main() {
 
 	occ_data = 0;
@@ -172,6 +176,10 @@ int main() {
 	std::thread joy_thread(joystick_thread);
 
 	std::thread thingsboard_th(mqtt_thread);
+
+	signal(SIGTERM, signalHandler);
+
+	signal(SIGINT, signalHandler);
 
 	Display_driver::init_display();
 
@@ -815,5 +823,13 @@ void erase_display() {
 
 	Display_driver::draw_icon_col(0, 30, 240, erase, sizeof(erase) / 2,
 			background_color);
+
+}
+
+void signalHandler( int signum ) {
+
+	printf("Ending program\n");
+
+	on = 0;
 
 }
